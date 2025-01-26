@@ -1,0 +1,55 @@
+body {
+    background-color: rgba(0, 0, 0, 0.579);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    height: 400px;
+    width: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    border : 2px solid rgb(191, 191, 191);
+    background-color: turquoise;
+}
+
+#input {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(191, 191, 191);
+    height: 100px; /* Fixed height */
+    margin-bottom: 5px;
+    text-align: left; /* Align text to the left */
+    font-size: 30px;
+    border-radius: 10px 10px 0 0;
+    word-wrap: break-word; /* Wrap long words */
+    overflow-wrap: break-word; /* Ensure text wrapping */
+    white-space: pre-wrap; /* Allow wrapping and preserve new lines */
+    padding: 10px; /* Add padding for better readability */
+    overflow-y: scroll; /* Add vertical scrollbar when content overflows */
+}
+
+
+/* 
+.display {
+    background-color: rgb(255, 255, 255);
+    border:  2px solid rgb(191, 191, 191);
+    height: 90%;
+    margin-bottom: 5px;
+    text-align: right;
+    font-size: 20px;
+    border-radius: 10px 10px 0 0;
+} */
+
+.inputNum{
+    gap: 10px;
+   
+    height: 250px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
