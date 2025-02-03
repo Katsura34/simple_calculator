@@ -4,36 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
-    
+
+<!-- Navigation Menu -->
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">Calculator</a></li>
+        <li><a href="fibonacci.html">Fibonacci Calculator</a></li>
+    </ul>
+</nav>
+
+<!-- Calculator Container -->
 <div class="container">
-<div id="input"></div>
+    <div id="input"></div>
     <div class="inputNum">
-    <button></button>
-                <button></button>
-                <button>DEL</button>
-                <button value="/">/</button>
-                <button value="7">7</button>
-                <button value="8">8</button>
-                <button value="9">9</button>
-                <button value="*">*</button>
-                <button value="4">4</button>
-                <button value="5">5</button>
-                <button value="6">6</button>
-                <button value="-">-</button>
-                <button value="1">1</button>
-                <button value="2">2</button>
-                <button value="3">3</button>
-                <button value="+">+</button>
-                <button value=".">.</button>
-                <button value="0">0</button>
-                <button value="C">C</button>
-                <button value="=">=</button>
+        <button></button>
+        <button></button>
+        <button>DEL</button>
+        <button value="/">/</button>
+        <button value="7">7</button>
+        <button value="8">8</button>
+        <button value="9">9</button>
+        <button value="*">*</button>
+        <button value="4">4</button>
+        <button value="5">5</button>
+        <button value="6">6</button>
+        <button value="-">-</button>
+        <button value="1">1</button>
+        <button value="2">2</button>
+        <button value="3">3</button>
+        <button value="+">+</button>
+        <button value=".">.</button>
+        <button value="0">0</button>
+        <button value="C">C</button>
+        <button value="=">=</button>
     </div>
 </div>
 
 <script src="logic.js"></script>
+
+<!-- Add Some CSS for Navbar -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        background-color: #007bff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbar li {
+        display: inline;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .navbar a:hover {
+        background-color: #0056b3;
+    }
+</style>
+
 </body>
 </html>
