@@ -1,0 +1,64 @@
+  body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            height: 100%;
+            width: 100%;
+        }
+
+        .input-section {
+            width: 40%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .output-section {
+            width: 60%;
+            padding: 30px;
+            background-color: #f0f0f0;
+            overflow-y: auto; /* Scrollable output */
+            height: 100%;
+        }
+
+        .output-table {
+            height: 300px;
+            overflow-y: auto; /* Scrollable table body */
+            border: 1px solid #ccc;
+        }
+
+        /* Fix the table header when scrolling */
+        .output-table thead {
+            position: sticky;
+            top: 0;
+            background-color: #343a40;
+            color: white;
+            z-index: 10;
+        }
+
+        .golden-ratio {
+            font-weight: bold;
+            color: darkblue;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
