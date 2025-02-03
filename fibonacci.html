@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci & Golden Ratio Calculator</title>
+
+    <link rel="stylesheet" href="ibonacci.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ 
+</head>
+<body>
+
+<div class="container">
+    <!-- Left Input Section -->
+    <div class="input-section">
+        <div class="card shadow">
+            <div class="card-header">
+                <h3>Fibonacci & Golden Ratio Calculator</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="term1" class="form-label">First Term</label>
+                    <input type="number" id="term1" class="form-control" placeholder="Enter first term (e.g., 0)">
+                </div>
+                <div class="mb-3">
+                    <label for="term2" class="form-label">Second Term</label>
+                    <input type="number" id="term2" class="form-control" placeholder="Enter second term (e.g., 1)">
+                </div>
+                <div class="mb-3">
+                    <label for="number" class="form-label">Number of Terms</label>
+                    <input type="number" id="number" class="form-control" placeholder="Enter number of terms">
+                </div>
+                <button class="btn btn-primary w-100" onclick="calculateFibonacci()">Calculate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Output Section -->
+    <div class="output-section">
+        <div class="card shadow mt-4" id="outputTable">
+            <div class="card-body">
+                <h5 class="text-center">Fibonacci Sequence & Golden Ratio</h5>
+                <div class="output-table">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Term</th>
+                                <th>Fibonacci Number</th>
+                                <th>Golden Ratio (if applicable)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+                <div class="golden-ratio text-center" id="goldenRatioResult"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript Logic -->
+<script>
+    function calculateFibonacci() {
+        const term1 = parseInt(document.getElementById("term1").value);
+        const term2 = parseInt(document.getElementById("term2").value);
+        const num = parseInt(document.getElementById("number").value);
+        const tableBody = document.getElementById("tableBody");
+        const goldenRatioResult = document.getElementById("goldenRatioResult");
+        const outputTable = document.getElementById("outputTable");
+
+        if (num <= 1 || isNaN(num) || isNaN(term1) || isNaN(term2)) {
+            alert("Please enter valid numbers greater than 1.");
+            return;
+        }
+
+        let fib = [term1, term2];
+        let goldenRatios = [];
+
+        for (let i = 2; i < num; i++) {
+            fib[i] = fib[i - 1] + fib[i - 2];
+        }
+
+        for (let i = 1; i < fib.length; i++) {
+            goldenRatios.push((fib[i] / fib[i - 1]).toFixed(6));
+        }
+
+        // Detect when the golden ratio stabilizes (repeats 3-6 times)
+        let stableGoldenRatio = null;
+        for (let i = goldenRatios.length - 6; i < goldenRatios.length - 2; i++) {
+            if (goldenRatios[i] === goldenRatios[i + 1] && goldenRatios[i] === goldenRatios[i + 2]) {
+                stableGoldenRatio = goldenRatios[i];
+                break;
+            }
+        }
+
+        // Clear previous results
+        tableBody.innerHTML = "";
+        goldenRatioResult.innerHTML = "";
+
+        // Populate the table
+        for (let i = 0; i < fib.length; i++) {
+            let goldenRatio = i > 0 ? goldenRatios[i - 1] : "-";
+            tableBody.innerHTML += `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${fib[i]}</td>
+                    <td>${goldenRatio}</td>
+                </tr>
+            `;
+        }
+
+        // Show the detected golden ratio if found
+        if (stableGoldenRatio) {
+            goldenRatioResult.innerHTML = `<p>Confirmed Golden Ratio: <strong>${stableGoldenRatio}</strong></p>`;
+        } else {
+            goldenRatioResult.innerHTML = `<p>Golden Ratio is still fluctuating...</p>`;
+        }
+
+        // Display the results table
+        outputTable.style.display = "block";
+    }
+</script>
+
+<!-- Bootstrap JS (Optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
